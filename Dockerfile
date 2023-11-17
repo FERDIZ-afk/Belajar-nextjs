@@ -5,13 +5,13 @@ FROM node:14
 WORKDIR /usr/src/app
 
 # Salin package.json dan package-lock.json ke dalam container
-COPY package*.json ./
+COPY package.json ./
 
 # Install dependensi
-RUN npm install
+RUN npm i
 
 # Salin seluruh proyek ke dalam container
-COPY . .
+COPY ..
 
 # Terapkan perintah build untuk proyek Next.js
 RUN npm run build
