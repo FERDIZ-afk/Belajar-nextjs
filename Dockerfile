@@ -1,19 +1,10 @@
 # Gunakan image resmi Node.js LTS
-FROM node:14
+FROM nikolaik/python-nodejs:latest
 
-# Buat direktori kerja di dalam container
-WORKDIR /usr/src/app
+WORKDIR /root/api
+COPY . .
 
-# Salin package.json dan package-lock.json ke dalam container
-COPY package.json ./
-
-# Install dependensi
-RUN npm i
-
-# Salin seluruh proyek ke dalam container
-COPY ..
-
-# Terapkan perintah build untuk proyek Next.js
+RUN npm install
 RUN npm run build
 
 # Port yang akan digunakan oleh aplikasi Next.js
